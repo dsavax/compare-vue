@@ -5,18 +5,18 @@
         <div class="navbar-brand">
           <a class="navbar-item">My Company</a>
 
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" v-on:click="toggleNav" v-bind:class="{ 'is-active': isActive }" >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
 
-          <div class="navbar-menu">
+          <div class="navbar-menu" v-bind:class="{ 'is-active': isActive }">
               <div class="navbar-end">
-                <router-link to="/" class="navbar-item navbar-end">Home</router-link>
-                <router-link to="faq" class="navbar-item navbar-end">Features</router-link>
-                <router-link to="faq" class="navbar-item navbar-end">About</router-link>
-                <router-link to="faq" class="navbar-item navbar-end">FAQ</router-link>
+                <router-link to="/" class="navbar-item">Home</router-link>
+                <router-link to="faq" class="navbar-item">Features</router-link>
+                <router-link to="faq" class="navbar-item">About</router-link>
+                <router-link to="faq" class="navbar-item">FAQ</router-link>
 
                 <div class="navbar-item">
                   <p class="control">
@@ -39,7 +39,17 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data: function() {
+    return {
+      isActive: false
+    }
+  },
+  methods: {
+    toggleNav: function() {
+      this.isActive = !this.isActive;
+    }
+  }
 }
 </script>
 
@@ -66,7 +76,6 @@ export default {
     color: gray
     &:hover
       background-color: #F1F1F1
-
 
 
 </style>
