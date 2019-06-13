@@ -76,7 +76,7 @@ export default {
 .navbar
   background-color: #383838
   a:hover
-  color: gray
+    color: gray
 
 .navbar-brand a
   color: #fff
